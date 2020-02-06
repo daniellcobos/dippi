@@ -142,8 +142,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
      "http://localhost:4200",
     "http://127.0.0.1:4200",
-    "https://recetario-52762.firebaseapp.com/",
-    "http://recetario-52762.firebaseapp.com/",
+    "https://recetario-52762.firebaseapp.com",
+    "http://recetario-52762.firebaseapp.com",
 ]
 
 CORS_ALLOW_METHODS = [
