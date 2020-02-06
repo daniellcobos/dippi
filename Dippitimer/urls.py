@@ -24,6 +24,7 @@ urlpatterns = [
     path('listaingrediente', views.ListaIngredienteList.as_view()),
     path('listaingregister', views.ListaIngredienteRegisterList.as_view()),
     path('listaingrediente/<int:pk>', views.ListaIngredienteDetail.as_view()),
+    path('ingredientes/<int:cat>', views.FiltIngredienteList.as_view()),
     path('plato', views.PlatoList.as_view()),
     path('plato/<int:pk>', views.PlatoDetail.as_view()),
     path('message', views.MessageList.as_view()),

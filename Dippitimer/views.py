@@ -89,3 +89,13 @@ class PlatoList(generics.ListCreateAPIView):
     queryset = Plato.objects.all()
     serializer_class = PlatoSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+class FiltIngredienteList(generics.ListCreateAPIView):
+    queryset = Ingrediente.objects.all()
+    serializer_class = IngredienteSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    def get_queryset(self):
+        """
+        Filtrar por categorias
+        """
+        cats = ['Hortalizas/Verduras','Frutas','Tuberculos','Platanos','Granos y Procesados', 'Lacteos', 'Carnes y Pescados', 'Huevos']
+        return Ingrediente.objects.filter(categoria=cats[self.kwargs['cat']])
