@@ -48,7 +48,7 @@ class DescripcionPedido(models.Model):
     def __str__(self):
         return str(self.id)
 class Ingrediente(models.Model):
-    nombre = models.CharField(max_length=55)
+    nombre = models.CharField(max_length=56)
     preciohoy = models.IntegerField( default = 0)
     precioayer = models.IntegerField( default = 0)
     descuento = models.BooleanField ( default = False)
