@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 from rest_framework import serializers
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework_jwt.settings import api_settings
-
+from django.core.mail import send_mail
 User = get_user_model()
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
@@ -94,9 +94,12 @@ class UserSerializer(serializers.ModelSerializer):
           
         }
     def create(self, validated_data):
+        useremail = validated_data.pop('email', None)
+        send_mail('Registro', 'Bienvenido, usted se ha registrado en Dippi y si no fue usted yaper','dippipedidosmail@gmail.com', [useremail])
         password = validated_data.pop('password', None)
         instance = self.Meta.model(**validated_data)
         if password is not None:
+            instance.email = useremail
             instance.set_password(password)
         instance.save()
         return instance

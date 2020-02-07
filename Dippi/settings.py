@@ -175,3 +175,8 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=900),
 }
 django_heroku.settings(locals())
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dippipedidosmail@gmail.com'
+EMAIL_HOST_PASSWORD = '1q2w3e4r@'
