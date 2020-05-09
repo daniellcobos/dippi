@@ -130,7 +130,7 @@ class PlatoSerializer(serializers.ModelSerializer):
     listaing = ListaIngSerializer(many=True, read_only=True)
     class Meta:
         model = Plato
-        fields = ('id','nombre', 'preciohoy', 'listaing', 'descuento')
+        fields = ('id','nombre', 'preciohoy', 'listaing', 'descuento','tags','preparacion')
     
 class ListaIngRegisterSerializer(serializers.ModelSerializer):
     ingrediente = serializers.SlugRelatedField(
