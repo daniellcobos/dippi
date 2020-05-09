@@ -13,6 +13,10 @@ class User(AbstractUser):
   user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
   def __str__(self):
         return self.email
+class Tags(models.Model):
+    nombre = models.CharField(max_length=55)
+    def __str__(self):
+        return str(self.nombre)
 class Restaurante(models.Model):
     nombre = models.CharField(blank=True, max_length=255)
     direccion = models.CharField(blank=True, max_length=255)
@@ -54,7 +58,6 @@ class Ingrediente(models.Model):
     descuento = models.BooleanField ( default = False)
     unidad = models.CharField(max_length=55)
     categoria = models.CharField(max_length=55)
-   
     def __str__(self):
         return str(self.nombre)
 class Plato(models.Model):
@@ -63,7 +66,9 @@ class Plato(models.Model):
     nombre = models.CharField(max_length=55)
     preciohoy = models.DecimalField(max_digits = 14, decimal_places=3 , default = 0)
     precioayer = models.DecimalField(max_digits = 14, decimal_places=3, default = 0)
-    descuento = models.BooleanField ( default = False)
+    preparacion = models.TextField(blank=True)
+    tags = models.ManyToManyField(Tags)
+    descuento = models.BooleanField (default = False)
     def __str__(self):
         return str(self.nombre)
 class ListaIngredientes(models.Model):
@@ -73,3 +78,4 @@ class ListaIngredientes(models.Model):
     
     def __str__(self):
         return str(self.id)
+
