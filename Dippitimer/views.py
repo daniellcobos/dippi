@@ -15,6 +15,9 @@ from django_mailbox.models import Message
 class RestauranteList(generics.ListCreateAPIView):
     queryset = Restaurante.objects.all()
     serializer_class = RestauranteListSerializer
+class TagList(generics.ListCreateAPIView):
+    queryset = Tags.objects.all()
+    serializer_class = TagsSerializer
 class RestauranteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurante.objects.all()
     serializer_class = RestauranteDetailSerializer

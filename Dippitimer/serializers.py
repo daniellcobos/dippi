@@ -140,3 +140,7 @@ class ListaIngRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = ListaIngredientes
         fields = '__all__'
+class TagsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tags
+        fields = '__all__'

@@ -6,6 +6,7 @@ from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 app_name= 'Dippi'
 urlpatterns = [
     path('restaurantes', views.RestauranteList.as_view()),
+    path('tags', views.TagList.as_view()),
     path('restaurantes/<int:pk>', views.RestauranteDetail.as_view()),
     path('misrestaurantes', views.RestauranteAdminList.as_view()),
     path('misrestaurantes/<int:pk>', views.RestauranteAdminDetail.as_view()),
