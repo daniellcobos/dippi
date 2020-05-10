@@ -67,7 +67,7 @@ class Plato(models.Model):
     preciohoy = models.DecimalField(max_digits = 14, decimal_places=3 , default = 0)
     precioayer = models.DecimalField(max_digits = 14, decimal_places=3, default = 0)
     preparacion = models.TextField(blank=True)
-    tags = models.ManyToManyField(Tags)
+    tags = models.ManyToManyField(Tags, related_name='platos')
     descuento = models.BooleanField (default = False)
     def __str__(self):
         return str(self.nombre)

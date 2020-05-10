@@ -140,7 +140,17 @@ class ListaIngRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = ListaIngredientes
         fields = '__all__'
+class PlatoListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Plato
+        fields = ('id','nombre',)
+    
 class TagsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tags
         fields = '__all__'
+class TagsIndSerializer(serializers.ModelSerializer):
+    platos = PlatoListSerializer(many=True, read_only=True)
+    class Meta:
+        model = Tags
+        fields = ('id','nombre','platos')

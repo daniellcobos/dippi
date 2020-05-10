@@ -18,6 +18,9 @@ class RestauranteList(generics.ListCreateAPIView):
 class TagList(generics.ListCreateAPIView):
     queryset = Tags.objects.all()
     serializer_class = TagsSerializer
+class TagDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tags.objects.all()
+    serializer_class = TagsIndSerializer
 class RestauranteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurante.objects.all()
     serializer_class = RestauranteDetailSerializer
